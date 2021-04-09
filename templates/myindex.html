@@ -1,0 +1,24 @@
+<!doctype html>
+<title>image classifier app</title>
+<h2>Select a file to upload</h2>
+<p>
+	{% with messages = get_flashed_messages() %}
+	  {% if messages %}
+        Label: {{ messages[0] }}
+			</br>
+        Confidence: {{ messages[1] }}
+			</br>
+				Filename: {{messages[2]}}
+	  {% endif %}
+	{% endwith %}
+</p>
+<form method="post" action="/" enctype="multipart/form-data">
+    <dl>
+	<p>
+		<input type="file" name="file" autocomplete="off" accept=".png, .jpg, .jpeg" required>
+	</p>
+    </dl>
+    <p>
+	<input type="submit" value="Submit">
+    </p>
+</form>
